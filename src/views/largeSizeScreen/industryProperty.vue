@@ -90,6 +90,18 @@ export default {
     padding-top: 10px;
     box-sizing: border-box;
     position: relative;
+    // 底部发光边框
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.6), transparent);
+      box-shadow: 0 0 10px rgba(0, 245, 255, 0.4);
+    }
 
     .datetime_style {
       position: absolute;
