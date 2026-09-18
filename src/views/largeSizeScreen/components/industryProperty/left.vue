@@ -32,8 +32,8 @@
       <div v-for="(item, index) in [...money]" :key="index" class="numbg">{{ item }}</div>
       <div style="margin-left: 16px;">万元</div>
     </div>
-    <div class="flex_style_pie">
-      <div style="position: relative;">
+    <div class="flex_style_pie second-pie">
+      <div style="position: relative; flex-shrink: 0;">
         <div id="pieTwo"></div>
         <img src="@/assets/pietwobg.png" alt="" class="pietwobg">
         <img src="@/assets/dyn/dyn-pie2.webp" alt="" class="pietwobg">
@@ -46,13 +46,12 @@
           </div>
 
           <div class="pieTextname" style="margin: 0 14px;">{{ item.name }}</div>
-          <div class="pieTextnum">{{ item.value }}</div>
           <div class="pieTextnums">{{ item.proportion + '%' }}</div>
         </div>
       </div>
     </div>
 
-    <TitleComponent style="margin-top: 20px;">当年出租面积分析</TitleComponent>
+    <TitleComponent style="margin-top: 36px;">当年出租面积分析</TitleComponent>
     <div class="areabg">
       <div v-for="(item, index) in areadata" :key="index" :class="'area' + index" @click="opClick(item)">
         <div class="areaname">{{ item.name }}</div>
@@ -290,10 +289,15 @@ $glow: rgba(0, 245, 255, 0.6);
 }
 
 #pieTwo {
-  width: 190px;
-  height: 190px;
+  width: 100px;
+  height: 100px;
   z-index: 99;
   filter: drop-shadow(0 0 10px $glow);
+}
+
+.flex_style_pie.second-pie {
+  margin-top: 60px;
+  gap: 24px;
 }
 
 .flex_style_pie {
@@ -447,7 +451,7 @@ $glow: rgba(0, 245, 255, 0.6);
   font-size: 20px;
   color: #FFFFFF;
   letter-spacing: 2px;
-  margin-top: 20px;
+  margin-top: 10px;
   text-shadow: 0 0 10px $glow;
 
   .numbg {
@@ -473,17 +477,16 @@ $glow: rgba(0, 245, 255, 0.6);
 }
 
 .areabg {
-  width: 330px;
+  width: 405px;
   height: 256px;
   background: url('@/assets/areabg.png') repeat;
   background-size: 100% 100%;
-  margin: 0 auto;
-  margin-top: 24px;
+  margin: 24px 0 0 0;
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  padding: 28px 24px;
+  padding: 20px 20px;
   box-sizing: border-box;
   color: #FFFFFF;
   font-weight: 600;

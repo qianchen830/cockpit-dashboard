@@ -741,7 +741,7 @@ export default {
       let x = Number(item.x) || 0
       let y = Number(item.y) || 0
       // 个别点位微调（上移）
-      const adjust = { '企业天地': -40 }
+      const adjust = { '企业天地': -130 }
       if (adjust[item.name] !== undefined) {
         y += adjust[item.name]
       }
