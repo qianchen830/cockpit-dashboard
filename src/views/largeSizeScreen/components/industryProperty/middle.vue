@@ -738,9 +738,16 @@ export default {
       }
     },
     posStyle(item) {
+      let x = Number(item.x) || 0
+      let y = Number(item.y) || 0
+      // 个别点位微调（上移）
+      const adjust = { '企业天地': -40 }
+      if (adjust[item.name] !== undefined) {
+        y += adjust[item.name]
+      }
       // 容器817x627，卡片159x68，钳制防止越界
-      const x = Math.max(0, Math.min(Number(item.x) || 0, 817 - 159))
-      const y = Math.max(0, Math.min(Number(item.y) || 0, 627 - 68))
+      x = Math.max(0, Math.min(x, 817 - 159))
+      y = Math.max(0, Math.min(y, 627 - 68))
       return 'top:' + y + 'px;left:' + x + 'px;'
     },
     // 生成扇形的曲面参数方程，
