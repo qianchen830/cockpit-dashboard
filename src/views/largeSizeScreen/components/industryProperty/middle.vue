@@ -919,15 +919,18 @@ export default {
 
 .title_style {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 10px;
   cursor: pointer;
 
   .title_style_item {
+    flex: 1;
     display: flex;
     align-items: center;
-    padding: 8px 16px;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 8px;
     border-radius: 8px;
     background: rgba(0, 245, 255, 0.05);
     border: 1px solid rgba(0, 245, 255, 0.15);
@@ -941,22 +944,27 @@ export default {
     }
 
     .img_style {
-      width: 80px;
-      height: 80px;
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
       filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.4));
     }
 
     .text {
       color: #FFFFFF;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
 
       :nth-child(1) {
-        font-size: 18px;
+        font-size: 13px;
         color: #B8C5D6;
       }
 
       :nth-child(2) {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 600;
         color: #00F5FF;
         text-shadow: 0 0 10px rgba(0, 245, 255, 0.6);

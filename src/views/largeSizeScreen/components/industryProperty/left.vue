@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    <TitleComponent style="margin-top: 70px;">当年出租面积分析</TitleComponent>
+    <TitleComponent style="margin-top: 20px;">当年出租面积分析</TitleComponent>
     <div class="areabg">
       <div v-for="(item, index) in areadata" :key="index" :class="'area' + index" @click="opClick(item)">
         <div class="areaname">{{ item.name }}</div>
@@ -467,32 +467,42 @@ $glow: rgba(0, 245, 255, 0.6);
   margin: 0 auto;
   margin-top: 30px;
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 24px 22px;
+  box-sizing: border-box;
   color: #FFFFFF;
   font-weight: 600;
   letter-spacing: 1px;
   box-shadow: 0 0 30px rgba($primary, 0.1);
 
   .areaname {
-    font-size: 18px;
+    font-size: 14px;
     color: #B8C5D6;
+    margin-bottom: 4px;
   }
 
   .areanum {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 500;
     color: $primary;
     text-shadow: 0 0 15px $glow;
 
     span {
-      font-size: 16px;
+      font-size: 13px;
       color: #B8C5D6;
     }
   }
 
   .area0, .area1, .area2 {
-    position: absolute;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     cursor: pointer;
-    padding: 8px 12px;
+    padding: 8px 10px;
     border-radius: 6px;
     background: rgba($primary, 0.05);
     border: 1px solid rgba($primary, 0.2);
@@ -501,24 +511,12 @@ $glow: rgba(0, 245, 255, 0.6);
     &:hover {
       background: rgba($primary, 0.15);
       border-color: $primary;
-      transform: scale(1.05);
       box-shadow: 0 0 20px $glow;
     }
   }
 
-  .area0 {
-    top: 34px;
-    left: 0;
-  }
-
-  .area1 {
-    top: 30px;
-    right: 0;
-  }
-
   .area2 {
-    bottom: 0px;
-    left: 110px;
+    grid-column: 1 / -1;
   }
 }
 
