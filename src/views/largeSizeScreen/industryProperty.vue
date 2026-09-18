@@ -80,14 +80,14 @@ export default {
     background: url('@/assets/headbg.png') repeat;
     background-size: 100% 100%;
     width: 100%;
-    height: 80px;
+    height: 64px;
     font-weight: 600;
-    font-size: 38px;
+    font-size: 32px;
     letter-spacing: 2px;
     text-shadow: 4px 4px 4px #020C16;
     text-align: center;
     color: #FFFFFF;
-    padding-top: 10px;
+    padding-top: 8px;
     box-sizing: border-box;
     position: relative;
     // 底部发光边框
@@ -105,9 +105,9 @@ export default {
 
     .datetime_style {
       position: absolute;
-      top: 24px;
+      top: 16px;
       right: 20px;
-      font-size: 18px;
+      font-size: 16px;
       color: #CED7E8;
       display: flex;
       align-items: center;
@@ -130,7 +130,7 @@ export default {
   .content {
     display: flex;
     justify-content: space-between;
-    padding: 24px 32px 0 32px;
+    padding: 14px 32px 0 32px;
     box-sizing: border-box;
   }
 }

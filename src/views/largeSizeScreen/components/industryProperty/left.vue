@@ -400,9 +400,14 @@ $glow: rgba(0, 245, 255, 0.6);
 
     .pieTextname {
       font-size: 14px;
-      margin: 0 30px 0 12px;
+      margin: 0 12px 0 12px;
       color: #AAB1B6;
       transition: color 0.3s ease;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     &:hover .pieTextname {
@@ -414,6 +419,8 @@ $glow: rgba(0, 245, 255, 0.6);
       font-weight: 600;
       color: $primary;
       text-shadow: 0 0 8px $glow;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
     .pieTextnums {
@@ -422,6 +429,8 @@ $glow: rgba(0, 245, 255, 0.6);
       color: $primary;
       margin-left: 8px;
       text-shadow: 0 0 6px $glow;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
   }
 }
