@@ -12,7 +12,7 @@
 
     <div class="demo_style">
       <div v-for="(item, index) in demolist" :key="index" class="demo_item" @click="topages(item)"
-           :style="'top:'+item.y+'px;'+'left:'+item.x+ 'px;'">
+           :style="posStyle(item)">
                 <span>
                     {{ item.name }}
                 </span>
@@ -723,6 +723,25 @@ export default {
     },
     changetab(val) {
       this.tabindex = val
+      if (val === 1) {
+        this.$nextTick(() => {
+          const el = document.getElementById('pie')
+          if (el) {
+            const inst = this.$echarts.getInstanceByDom(el)
+            if (inst) {
+              inst.resize()
+            } else {
+              this.initpie()
+            }
+          }
+        })
+      }
+    },
+    posStyle(item) {
+      // 容器817x627，卡片159x68，钳制防止越界
+      const x = Math.max(0, Math.min(Number(item.x) || 0, 817 - 159))
+      const y = Math.max(0, Math.min(Number(item.y) || 0, 627 - 68))
+      return 'top:' + y + 'px;left:' + x + 'px;'
     },
     // 生成扇形的曲面参数方程，
     getParametricEquation(startRatio, endRatio, isSelected, isHovered, k, h) {
@@ -1095,6 +1114,10 @@ export default {
       position: absolute;
       top: 2px;
       left: 68px;
+      right: 2px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 
