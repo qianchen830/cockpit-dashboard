@@ -279,16 +279,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$primary: #00F5FF;
+$glow: rgba(0, 245, 255, 0.6);
+
 #pieOne {
   width: 190px;
   height: 190px;
   z-index: 99;
+  filter: drop-shadow(0 0 10px $glow);
 }
 
 #pieTwo {
   width: 190px;
   height: 190px;
   z-index: 99;
+  filter: drop-shadow(0 0 10px $glow);
 }
 
 .flex_style_pie {
@@ -297,6 +302,21 @@ export default {
   padding: 0 15px;
   box-sizing: border-box;
   margin-top: 32px;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, $glow 0%, transparent 70%);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+  }
 }
 
 .pieonebg {
@@ -330,12 +350,21 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 2;
 
   .pieText {
     display: flex;
     align-items: center;
     color: #FFFFFF;
     letter-spacing: 2px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($primary, 0.1);
+      transform: translateX(4px);
+    }
 
     .dot {
       position: relative;
@@ -350,6 +379,7 @@ export default {
         height: 10px;
         border-radius: 50%;
         filter: blur(4px);
+        animation: dotPulse 2s ease-in-out infinite;
       }
 
       .dot_small {
@@ -363,22 +393,35 @@ export default {
       }
     }
 
+    @keyframes dotPulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
     .pieTextname {
       font-size: 14px;
       margin: 0 30px 0 12px;
       color: #AAB1B6;
+      transition: color 0.3s ease;
+    }
+
+    &:hover .pieTextname {
+      color: $primary;
     }
 
     .pieTextnum {
       font-size: 14px;
       font-weight: 600;
+      color: $primary;
+      text-shadow: 0 0 8px $glow;
     }
 
     .pieTextnums {
       font-size: 12px;
       font-weight: 600;
-      color: #B6CEF0;
+      color: $primary;
       margin-left: 8px;
+      text-shadow: 0 0 6px $glow;
     }
   }
 }
@@ -392,6 +435,7 @@ export default {
   color: #FFFFFF;
   letter-spacing: 2px;
   margin-top: 20px;
+  text-shadow: 0 0 10px $glow;
 
   .numbg {
     width: 38px;
@@ -404,6 +448,14 @@ export default {
     font-size: 28px;
     padding-left: 3px;
     box-sizing: border-box;
+    color: $primary;
+    text-shadow: 0 0 10px $glow, 0 0 20px $glow;
+    animation: numGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes numGlow {
+    0%, 100% { text-shadow: 0 0 10px $glow, 0 0 20px $glow; }
+    50% { text-shadow: 0 0 15px $glow, 0 0 30px $glow, 0 0 40px $glow; }
   }
 }
 
@@ -418,39 +470,55 @@ export default {
   color: #FFFFFF;
   font-weight: 600;
   letter-spacing: 1px;
+  box-shadow: 0 0 30px rgba($primary, 0.1);
 
   .areaname {
     font-size: 18px;
+    color: #B8C5D6;
   }
 
   .areanum {
     font-size: 26px;
     font-weight: 500;
+    color: $primary;
+    text-shadow: 0 0 15px $glow;
 
     span {
       font-size: 16px;
+      color: #B8C5D6;
+    }
+  }
+
+  .area0, .area1, .area2 {
+    position: absolute;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: rgba($primary, 0.05);
+    border: 1px solid rgba($primary, 0.2);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($primary, 0.15);
+      border-color: $primary;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px $glow;
     }
   }
 
   .area0 {
-    position: absolute;
     top: 34px;
     left: 0;
-    cursor: pointer;
   }
 
   .area1 {
-    position: absolute;
     top: 30px;
     right: 0;
-    cursor: pointer;
   }
 
   .area2 {
-    position: absolute;
     bottom: 0px;
     left: 110px;
-    cursor: pointer;
   }
 }
 

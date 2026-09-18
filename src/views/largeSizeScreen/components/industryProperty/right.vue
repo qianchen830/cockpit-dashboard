@@ -719,6 +719,15 @@ export default {
   width: 240px;
 }
 
+// Add glow effects for TOP items
+:deep(.top_item) {
+  transition: all 0.3s ease;
+  &:hover {
+    transform: translateX(4px);
+    filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.4));
+  }
+}
+
 .topimg_style {
   position: absolute;
   left: 0;
@@ -730,14 +739,17 @@ export default {
 #bar {
   width: 405px;
   height: 180px;
+  filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.2));
 }
 
 .demo_name {
   font-weight: 600;
   font-size: 18px;
-  color: #FFFFFF;
+  color: #00F5FF;
   margin-top: 16px;
   text-align: center;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.6);
+  letter-spacing: 2px;
 }
 
 .demo_flex {
@@ -748,26 +760,36 @@ export default {
   .demobg {
     width: 317px;
     height: 227px;
-    /*background: url('@/assets/arrowsbg.png') repeat;*/
     background: url('@/assets/dyn/dyn-qushi.webp') repeat;
     background-size: 100% 100%;
     display: flex;
     justify-content: space-between;
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.1);
 
     .demo_item {
       font-size: 14px;
       text-align: center;
       margin-top: 24px;
       letter-spacing: 1px;
+      padding: 8px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(0, 245, 255, 0.1);
+      }
 
       :nth-child(1) {
         color: #B6CEF0;
       }
 
       .demo_num {
-        color: #FFFFFF;
+        color: #00F5FF;
         margin-top: 4px;
         font-weight: 600;
+        text-shadow: 0 0 8px rgba(0, 245, 255, 0.6);
 
         span {
           color: #FFFFFF;
@@ -784,8 +806,6 @@ export default {
           transform: rotateX(180deg);
         }
       }
-
-
     }
   }
 
@@ -793,6 +813,13 @@ export default {
     width: 32px;
     height: 32px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 4px rgba(0, 245, 255, 0.4));
+    
+    &:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.6));
+    }
   }
 }
 </style>

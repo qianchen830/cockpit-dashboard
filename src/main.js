@@ -17,6 +17,7 @@ Vue.use(Vant);
 
 import '@/css/app.css';
 import '@/assets/animations.css';
+import '@/assets/theme.css';
 import * as filters from '@/filters'
 
 process.env.VUE_APP_MOCK ? require('@/mock') : undefined

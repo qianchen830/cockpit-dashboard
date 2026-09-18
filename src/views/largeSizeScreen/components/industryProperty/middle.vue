@@ -927,10 +927,23 @@ export default {
   .title_style_item {
     display: flex;
     align-items: center;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: rgba(0, 245, 255, 0.05);
+    border: 1px solid rgba(0, 245, 255, 0.15);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(0, 245, 255, 0.1);
+      border-color: rgba(0, 245, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 245, 255, 0.2);
+    }
 
     .img_style {
       width: 80px;
       height: 80px;
+      filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.4));
     }
 
     .text {
@@ -939,11 +952,14 @@ export default {
 
       :nth-child(1) {
         font-size: 18px;
+        color: #B8C5D6;
       }
 
       :nth-child(2) {
         font-size: 24px;
         font-weight: 600;
+        color: #00F5FF;
+        text-shadow: 0 0 10px rgba(0, 245, 255, 0.6);
       }
     }
   }
@@ -952,6 +968,7 @@ export default {
 #line {
   width: 100%;
   height: 200px;
+  filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.2));
 }
 
 .flex_bottom {
@@ -973,6 +990,7 @@ export default {
   align-items: center;
   justify-content: center;
   margin-top: 16px;
+  gap: 8px;
 
   .tab_item {
     width: 164px;
@@ -982,10 +1000,18 @@ export default {
     font-weight: 600;
     font-size: 16px;
     color: #AFB6C5;
-    background: url('@/assets/tabbg.png') repeat;
-    background-size: 100% 100%;
+    background: rgba(10, 40, 70, 0.4);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 4px;
     cursor: pointer;
     letter-spacing: 2px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #00F5FF;
+      border-color: rgba(0, 245, 255, 0.4);
+      background: rgba(0, 245, 255, 0.1);
+    }
   }
 
   .tab_item_active {
@@ -995,12 +1021,13 @@ export default {
     text-align: center;
     font-weight: 600;
     font-size: 16px;
-    color: #FFFFFF;
-    background: url('@/assets/tabbgs.png') repeat;
-    background-size: 100% 100%;
+    color: #00F5FF;
+    background: rgba(0, 245, 255, 0.15);
+    border: 1px solid #00F5FF;
+    border-radius: 4px;
     cursor: pointer;
     letter-spacing: 1px;
-
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
   }
 }
 
@@ -1182,6 +1209,7 @@ export default {
   width: 100%;
   height: 240px;
   margin-top: 14px;
+  filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.2));
 }
 
 .piebg3 {
