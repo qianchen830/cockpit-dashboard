@@ -298,8 +298,10 @@ $glow: rgba(0, 245, 255, 0.6);
 
 .flex_style_pie {
   display: flex;
-  justify-content: space-between;
-  padding: 0 15px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0 8px;
   box-sizing: border-box;
   margin-top: 32px;
   position: relative;
