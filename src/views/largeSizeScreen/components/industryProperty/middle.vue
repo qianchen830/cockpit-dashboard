@@ -963,8 +963,8 @@ export default {
     }
 
     .img_style {
-      width: 56px;
-      height: 56px;
+      width: 52px;
+      height: 52px;
       flex-shrink: 0;
       filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.4));
     }
@@ -978,12 +978,12 @@ export default {
       gap: 2px;
 
       :nth-child(1) {
-        font-size: 14px;
+        font-size: 15px;
         color: #B8C5D6;
       }
 
       :nth-child(2) {
-        font-size: 24px;
+        font-size: 27px;
         font-weight: 600;
         color: #00F5FF;
         text-shadow: 0 0 10px rgba(0, 245, 255, 0.6);

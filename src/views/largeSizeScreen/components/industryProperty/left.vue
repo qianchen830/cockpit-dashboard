@@ -351,6 +351,8 @@ $glow: rgba(0, 245, 255, 0.6);
   flex-direction: column;
   justify-content: space-between;
   z-index: 2;
+  padding-right: 14px;
+  box-sizing: border-box;
 
   .pieText {
     display: flex;
@@ -470,16 +472,16 @@ $glow: rgba(0, 245, 255, 0.6);
 
 .areabg {
   width: 330px;
-  height: 238px;
+  height: 256px;
   background: url('@/assets/areabg.png') repeat;
   background-size: 100% 100%;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 24px;
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  padding: 24px 22px;
+  gap: 16px;
+  padding: 28px 24px;
   box-sizing: border-box;
   color: #FFFFFF;
   font-weight: 600;
@@ -487,19 +489,19 @@ $glow: rgba(0, 245, 255, 0.6);
   box-shadow: 0 0 30px rgba($primary, 0.1);
 
   .areaname {
-    font-size: 14px;
+    font-size: 16px;
     color: #B8C5D6;
     margin-bottom: 4px;
   }
 
   .areanum {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 500;
     color: $primary;
     text-shadow: 0 0 15px $glow;
 
     span {
-      font-size: 13px;
+      font-size: 14px;
       color: #B8C5D6;
     }
   }
