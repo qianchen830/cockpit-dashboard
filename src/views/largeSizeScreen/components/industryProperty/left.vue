@@ -400,11 +400,11 @@ $glow: rgba(0, 245, 255, 0.6);
 
     .pieTextname {
       font-size: 14px;
-      margin: 0 12px 0 12px;
+      margin: 0 10px 0 8px;
       color: #AAB1B6;
       transition: color 0.3s ease;
-      flex: 1;
-      min-width: 0;
+      flex: 0 0 auto;
+      width: 68px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;

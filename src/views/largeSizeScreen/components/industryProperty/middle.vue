@@ -940,7 +940,7 @@ export default {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
 
   .title_style_item {
@@ -949,7 +949,7 @@ export default {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 10px 8px;
+    padding: 14px 10px;
     border-radius: 8px;
     background: rgba(0, 245, 255, 0.05);
     border: 1px solid rgba(0, 245, 255, 0.15);
@@ -963,8 +963,8 @@ export default {
     }
 
     .img_style {
-      width: 46px;
-      height: 46px;
+      width: 56px;
+      height: 56px;
       flex-shrink: 0;
       filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.4));
     }
@@ -978,12 +978,12 @@ export default {
       gap: 2px;
 
       :nth-child(1) {
-        font-size: 13px;
+        font-size: 14px;
         color: #B8C5D6;
       }
 
       :nth-child(2) {
-        font-size: 20px;
+        font-size: 24px;
         font-weight: 600;
         color: #00F5FF;
         text-shadow: 0 0 10px rgba(0, 245, 255, 0.6);
