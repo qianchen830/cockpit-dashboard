@@ -298,6 +298,7 @@ $glow: rgba(0, 245, 255, 0.6);
 .flex_style_pie.second-pie {
   margin-top: 60px;
   gap: 24px;
+  transform: translateX(103px);
 }
 
 .flex_style_pie {
