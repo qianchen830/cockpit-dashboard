@@ -593,8 +593,6 @@ export default {
   width: 100px;
   display: inline-block;
   margin-left: 110px;
-  position: relative;
-  top: -8px;
 
   ::v-deep input {
     background-color: #13293d !important;
@@ -748,7 +746,7 @@ export default {
   font-weight: 600;
   font-size: 18px;
   color: #00F5FF;
-  margin-top: 16px;
+  margin-top: 2px;
   text-align: center;
   text-shadow: 0 0 10px rgba(0, 245, 255, 0.6);
   letter-spacing: 2px;
