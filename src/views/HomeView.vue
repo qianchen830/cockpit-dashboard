@@ -2259,7 +2259,8 @@ img[src="https://api.map.baidu.com/images/iw3.png"] {
 /* ===== TOP5 / 标题容器 / tab 按钮纯 CSS 重构 ===== */
 
 /* 标题容器：去掉旧背景图，改用科技风渐变底线 */
-.data-view-right .graph .box .title {
+.data-view-right .graph .box .title,
+.data-view-right .graph .newbox .newtitle {
   background: linear-gradient(90deg, rgba(0, 245, 255, 0.12), transparent 65%) !important;
   border-bottom: 1px solid rgba(0, 245, 255, 0.2);
   padding: 4px 0;
@@ -2319,6 +2320,8 @@ img[src="https://api.map.baidu.com/images/iw3.png"] {
 
 /* 隐藏旧装饰图 */
 .data-view-right .graph .topimg_style {
+  width: 45px !important;
+  height: 45px !important;
   opacity: 0.35;
   filter: drop-shadow(0 0 6px rgba(0, 245, 255, 0.3));
 }
