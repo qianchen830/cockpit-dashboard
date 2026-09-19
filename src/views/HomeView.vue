@@ -2037,8 +2037,12 @@ img[src="https://api.map.baidu.com/images/iw3.png"] {
 
 /* 弹窗：玻璃边框 + 青色光晕 */
 .BMap_pop > div {
-  border: 1px solid rgba(0, 245, 255, 0.25) !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 245, 255, 0.12) !important;
+}
+
+/* 弹窗整体边缘发光（通过容器投影，不逐块加边框避免错位） */
+.BMap_pop {
+  filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.18));
 }
 
 /* 弹窗标题霓虹发光 */
@@ -2250,5 +2254,87 @@ img[src="https://api.map.baidu.com/images/iw3.png"] {
 
 .data-view-right .graph .top_item .top_item_name div:first-child {
   text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
+}
+
+/* ===== TOP5 / 标题容器 / tab 按钮纯 CSS 重构 ===== */
+
+/* 标题容器：去掉旧背景图，改用科技风渐变底线 */
+.data-view-right .graph .box .title {
+  background: linear-gradient(90deg, rgba(0, 245, 255, 0.12), transparent 65%) !important;
+  border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+  padding: 4px 0;
+}
+
+/* TOP 排名徽章 */
+.data-view-right .graph .top_item .top_item_name div:first-child {
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.25), rgba(2, 147, 221, 0.3));
+  border: 1px solid rgba(0, 245, 255, 0.5);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 12px;
+  color: #00f5ff;
+}
+
+/* 排名进度条：纯 CSS 渐变 + 发光，按名次配色 */
+.data-view-right .graph .top_item_bg0 {
+  background: linear-gradient(90deg, #00f5ff, rgba(0, 245, 255, 0.2)) !important;
+  height: 7px !important;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
+
+.data-view-right .graph .top_item_bg1 {
+  background: linear-gradient(90deg, #4ecdc4, rgba(78, 205, 196, 0.2)) !important;
+  height: 7px !important;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(78, 205, 196, 0.45);
+}
+
+.data-view-right .graph .top_item_bg2 {
+  background: linear-gradient(90deg, #84d6fb, rgba(132, 214, 251, 0.2)) !important;
+  height: 7px !important;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(132, 214, 251, 0.4);
+}
+
+.data-view-right .graph .top_item_bg3 {
+  background: linear-gradient(90deg, #a855f7, rgba(168, 85, 247, 0.2)) !important;
+  height: 7px !important;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+.data-view-right .graph .top_item_bg4 {
+  background: linear-gradient(90deg, #ffb84d, rgba(255, 184, 77, 0.2)) !important;
+  height: 7px !important;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(255, 184, 77, 0.4);
+}
+
+/* TOP5 数值发光 */
+.data-view-right .graph .top_item .top_item_name div:last-child {
+  color: #00f5ff;
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
+}
+
+/* 隐藏旧装饰图 */
+.data-view-right .graph .topimg_style {
+  opacity: 0.35;
+  filter: drop-shadow(0 0 6px rgba(0, 245, 255, 0.3));
+}
+
+/* 应收/实收 tab：玻璃科技风重做 */
+.data-view-right .graph .tab_item {
+  background: rgba(0, 20, 40, 0.55) !important;
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  border-radius: 6px;
+  backdrop-filter: blur(6px);
+}
+
+.data-view-right .graph .tab_item_active {
+  background: linear-gradient(135deg, rgba(0, 147, 221, 0.4), rgba(0, 245, 255, 0.18)) !important;
+  border: 1px solid rgba(0, 245, 255, 0.55);
+  border-radius: 6px;
+  backdrop-filter: blur(6px);
 }
 </style>
