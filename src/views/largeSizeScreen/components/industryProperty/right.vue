@@ -517,10 +517,15 @@ export default {
       let option = {
         tooltip: {
           trigger: 'axis',
+          backgroundColor: 'rgba(9, 18, 32, 0.92)',
+          borderColor: 'rgba(0, 245, 255, 0.35)',
+          borderWidth: 1,
+          textStyle: { color: '#fff' },
           axisPointer: {
-            type: 'cross',
-            label: {
-              backgroundColor: '#6a7985'
+            type: 'line',
+            lineStyle: {
+              color: 'rgba(0, 245, 255, 0.6)',
+              type: 'dashed'
             }
           }
         },
@@ -537,7 +542,7 @@ export default {
         xAxis: {
           type: 'category', axisLabel: {
             textStyle: {
-              color: "#FFFFFF",
+              color: "#B6CEF0",
             }
           },
           axisTick: {
@@ -559,10 +564,12 @@ export default {
             type: 'bar',
             itemStyle: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                {offset: 0, color: 'rgba(37, 161, 255, 1)'},
+                {offset: 0, color: 'rgba(0, 245, 255, 1)'},
                 {offset: 1, color: 'rgba(0, 148, 255, 0.20)'},
               ]),
-              borderRadius: [4, 4, 4, 4]
+              borderRadius: [4, 4, 4, 4],
+              shadowBlur: 6,
+              shadowColor: 'rgba(0, 245, 255, 0.4)'
             },
             barWidth: 8
 
@@ -571,7 +578,7 @@ export default {
             type: 'bar',
             itemStyle: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                {offset: 0, color: 'rgba(0, 188, 154, 1)'},
+                {offset: 0, color: 'rgba(78, 205, 196, 1)'},
                 {offset: 1, color: 'rgba(1, 222, 182, 0.20)'},
               ]),
               borderRadius: [4, 4, 4, 4]

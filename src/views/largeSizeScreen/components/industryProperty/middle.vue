@@ -319,10 +319,15 @@ export default {
       let option = {
         tooltip: {
           trigger: 'axis',
+          backgroundColor: 'rgba(9, 18, 32, 0.92)',
+          borderColor: 'rgba(0, 245, 255, 0.35)',
+          borderWidth: 1,
+          textStyle: { color: '#fff' },
           axisPointer: {
-            type: 'cross',
-            label: {
-              backgroundColor: '#6a7985'
+            type: 'line',
+            lineStyle: {
+              color: 'rgba(0, 245, 255, 0.6)',
+              type: 'dashed'
             }
           }
         },
@@ -340,7 +345,7 @@ export default {
             data: this.linedata.datax,
             axisLabel: {
               textStyle: {
-                color: "#FFFFFF",
+                color: "#B6CEF0",
               }
             },
             axisTick: {
@@ -356,8 +361,13 @@ export default {
             splitLine: {
               show: true,
               lineStyle: {
-                color: 'rgb(174, 193, 232, 0.25)',
+                color: 'rgba(0, 245, 255, 0.15)',
                 type: 'dashed' // 设置分割线为虚线
+              }
+            },
+            axisLabel: {
+              textStyle: {
+                color: "#B6CEF0",
               }
             }
           }
@@ -369,19 +379,21 @@ export default {
             stack: 'Total',
             smooth: true,
             lineStyle: {
-              width: 2,
-              color: '#6AF8EE',
+              width: 2.5,
+              color: '#00f5ff',
+              shadowBlur: 8,
+              shadowColor: 'rgba(0, 245, 255, 0.5)'
             },
             showSymbol: false,
             areaStyle: {
               color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
                   offset: 0,
-                  color: 'rgb(57,243,159,0.4)'
+                  color: 'rgba(0, 245, 255, 0.35)'
                 },
                 {
                   offset: 1,
-                  color: 'rgb(57,243,159,0)'
+                  color: 'rgba(0, 245, 255, 0)'
                 }
               ])
             },
@@ -469,10 +481,15 @@ export default {
       let option = {
         tooltip: {
           trigger: 'axis',
+          backgroundColor: 'rgba(9, 18, 32, 0.92)',
+          borderColor: 'rgba(0, 245, 255, 0.35)',
+          borderWidth: 1,
+          textStyle: { color: '#fff' },
           axisPointer: {
-            type: 'cross',
-            label: {
-              backgroundColor: '#6a7985'
+            type: 'line',
+            lineStyle: {
+              color: 'rgba(0, 245, 255, 0.6)',
+              type: 'dashed'
             }
           }
         },
@@ -633,13 +650,13 @@ export default {
                       fill: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                         {
                           offset: 0,
-                          color: 'rgba(2,138,215)',
+                          color: 'rgba(0,190,255)',
 
 
                         },
                         {
                           offset: 1,
-                          color: 'rgba(8,51,110)',
+                          color: 'rgba(0,70,130)',
 
                         },
                       ]),
@@ -659,13 +676,13 @@ export default {
                       fill: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                         {
                           offset: 0,
-                          color: 'rgba(2,138,215)',
+                          color: 'rgba(0,190,255)',
 
 
                         },
                         {
                           offset: 1,
-                          color: 'rgba(8,51,110)',
+                          color: 'rgba(0,70,130)',
 
                         },
                       ]),
@@ -685,13 +702,13 @@ export default {
                       fill: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                         {
                           offset: 0,
-                          color: 'rgba(0,137,230)',
+                          color: 'rgba(140,240,255)',
 
 
                         },
                         {
                           offset: 1,
-                          color: 'rgba(1,178,246)',
+                          color: 'rgba(0,220,255)',
 
                         },
                       ]),
@@ -1068,9 +1085,23 @@ export default {
 .titlebg2 {
   width: 100%;
   height: 40px;
-  background: url('@/assets/titlebg2.png') repeat;
-  background-size: 100% 100%;
+  background: linear-gradient(90deg, rgba(0, 245, 255, 0.15) 0%, rgba(0, 60, 100, 0.25) 50%, rgba(0, 245, 255, 0.08) 100%);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  border-radius: 6px;
   overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.1), inset 0 0 20px rgba(0, 245, 255, 0.05);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #00f5ff 20%, #00f5ff 80%, transparent 100%);
+    box-shadow: 0 0 10px #00f5ff;
+  }
 
   .text {
     font-weight: 600;
@@ -1079,15 +1110,30 @@ export default {
     letter-spacing: 2px;
     margin-left: 40px;
     margin-top: 2px;
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.8), 0 0 20px rgba(0, 245, 255, 0.4);
   }
 }
 
 .titlebg3 {
   width: 100%;
   height: 40px;
-  background: url('@/assets/titlebg3.png') repeat;
-  background-size: 100% 100%;
+  background: linear-gradient(90deg, rgba(0, 245, 255, 0.15) 0%, rgba(0, 60, 100, 0.25) 50%, rgba(0, 245, 255, 0.08) 100%);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  border-radius: 6px;
   overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.1), inset 0 0 20px rgba(0, 245, 255, 0.05);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #00f5ff 20%, #00f5ff 80%, transparent 100%);
+    box-shadow: 0 0 10px #00f5ff;
+  }
 
   .text {
     font-weight: 600;
@@ -1096,6 +1142,7 @@ export default {
     letter-spacing: 2px;
     margin-left: 40px;
     margin-top: 2px;
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.8), 0 0 20px rgba(0, 245, 255, 0.4);
   }
 }
 
