@@ -558,10 +558,15 @@ export default {
       let option = {
         tooltip: {
           trigger: 'axis',
+          backgroundColor: 'rgba(9, 18, 32, 0.92)',
+          borderColor: 'rgba(0, 245, 255, 0.35)',
+          borderWidth: 1,
+          textStyle: { color: '#fff' },
           axisPointer: {
             type: 'cross',
+            lineStyle: { color: 'rgba(0, 245, 255, 0.4)' },
             label: {
-              backgroundColor: '#6a7985'
+              backgroundColor: 'rgba(0, 147, 221, 0.85)'
             }
           }
         },
@@ -600,10 +605,12 @@ export default {
             type: 'bar',
             itemStyle: {
               color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                {offset: 0, color: 'rgba(37, 161, 255, 1)'},
-                {offset: 1, color: 'rgba(0, 148, 255, 0.20)'},
+                {offset: 0, color: 'rgba(0, 245, 255, 1)'},
+                {offset: 1, color: 'rgba(0, 147, 221, 0.15)'},
               ]),
-              borderRadius: [4, 4, 4, 4]
+              borderRadius: [4, 4, 4, 4],
+              shadowBlur: 8,
+              shadowColor: 'rgba(0, 220, 255, 0.45)'
             },
             barWidth: 8
 
@@ -612,10 +619,12 @@ export default {
             type: 'bar',
             itemStyle: {
               color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                {offset: 0, color: 'rgba(0, 188, 154, 1)'},
-                {offset: 1, color: 'rgba(1, 222, 182, 0.20)'},
+                {offset: 0, color: 'rgba(78, 205, 196, 1)'},
+                {offset: 1, color: 'rgba(1, 222, 182, 0.15)'},
               ]),
-              borderRadius: [4, 4, 4, 4]
+              borderRadius: [4, 4, 4, 4],
+              shadowBlur: 8,
+              shadowColor: 'rgba(78, 205, 196, 0.4)'
             },
             barWidth: 8
           }
@@ -1314,6 +1323,10 @@ export default {
       let option = {
         tooltip: {
           trigger: "item",
+          backgroundColor: 'rgba(9, 18, 32, 0.92)',
+          borderColor: 'rgba(0, 245, 255, 0.35)',
+          borderWidth: 1,
+          textStyle: { color: '#fff' },
         },
         grid: {
           top: "20%",
@@ -1327,12 +1340,10 @@ export default {
           axisLabel: {
             // interval: 0,
             rotate: "45",
-            color: "#fff",
+            color: "#8FD6FF",
             fontSize: 10,
-            // lineStyle: {
-            //   color: '#163a5f',
-            //   width: 2
-            // }
+            textShadowColor: 'rgba(0, 245, 255, 0.4)',
+            textShadowBlur: 4
           },
         },
         yAxis: {
@@ -1341,11 +1352,11 @@ export default {
           splitLine: {
             lineStyle: {
               type: "dashed",
-              color: "#999d9c",
+              color: "rgba(0, 245, 255, 0.15)",
             },
           },
           axisLabel: {
-            color: "#fff",
+            color: "#8FD6FF",
             fontSize: 10,
           },
         },
@@ -1365,22 +1376,26 @@ export default {
                 colorStops: [
                   {
                     offset: 0.1,
-                    color: "#0f5da3", // 0% 处的颜色
+                    color: "#00f5ff", // 0% 处的颜色
                   },
                   {
                     offset: 1,
-                    color: "#8bb0ef", // 100% 处的颜色
+                    color: "rgba(2, 147, 221, 0.25)", // 100% 处的颜色
                   },
                 ],
               },
               barBorderRadius: [20, 20, 0, 0],
+              shadowBlur: 10,
+              shadowColor: "rgba(0, 245, 255, 0.4)",
             },
             label: {
               show: true,
               position: "top",
               distance: 0,
-              color: "#fff",
+              color: "#00f5ff",
               fontSize: 18,
+              textShadowColor: 'rgba(0, 245, 255, 0.6)',
+              textShadowBlur: 8,
               formatter: "{c}",
             },
           },
@@ -1453,8 +1468,13 @@ export default {
       const option = {
         tooltip: {
           trigger: 'item',
-          formatter: '{b}: {c}元 (占比{d}%)'
+          formatter: '{b}: {c}元 (占比{d}%)',
+          backgroundColor: 'rgba(9, 18, 32, 0.92)',
+          borderColor: 'rgba(0, 245, 255, 0.35)',
+          borderWidth: 1,
+          textStyle: { color: '#fff' }
         },
+        color: ['#00f5ff', '#4ecdc4', '#a855f7', '#ff6b6b', '#ffb84d', '#84d6fb', '#9bf179'],
         // legend: {
         //   orient: 'vertical',
         //   left: 'right',
@@ -1488,8 +1508,10 @@ export default {
           data: seriesData.sort((a, b) => b.value - a.value),
           itemStyle: {
             borderRadius: 5,
-            borderColor: '#fff',
-            borderWidth: 2
+            borderColor: '#091220',
+            borderWidth: 3,
+            shadowBlur: 14,
+            shadowColor: 'rgba(0, 245, 255, 0.3)'
           }
         }]
       };
@@ -2135,5 +2157,60 @@ img[src="https://api.map.baidu.com/images/iw3.png"] {
   background: radial-gradient(ellipse at center, transparent 55%, rgba(2, 12, 27, 0.5) 100%);
   box-shadow: inset 0 0 120px rgba(0, 245, 255, 0.05);
   z-index: 500;
+}
+
+/* ===== 标题科技风 ===== */
+
+/* 右侧面板标题：青色发光 + 装饰条 */
+.data-view-right .graph .box .title h4,
+.data-view-right .graph .newbox .newtitle h4 {
+  position: relative;
+  padding-left: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 0 12px rgba(0, 245, 255, 0.55), 0 0 28px rgba(0, 245, 255, 0.2);
+}
+
+.data-view-right .graph .box .title h4::before,
+.data-view-right .graph .newbox .newtitle h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 15px;
+  background: linear-gradient(180deg, #00f5ff, #0293dd);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 245, 255, 0.7);
+}
+
+/* 左侧统计卡片标题发光 */
+.data-view-left2-mini .drawer .block .title {
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.4);
+}
+
+.data-view-left2-mini .drawer .block .title .icon {
+  filter: drop-shadow(0 0 6px rgba(0, 245, 255, 0.6));
+}
+
+/* 应收/实收切换按钮：激活态发光 */
+.data-view-right .graph .tab_item_active {
+  box-shadow: 0 0 14px rgba(0, 245, 255, 0.35), inset 0 0 8px rgba(0, 245, 255, 0.12);
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
+}
+
+/* TOP5 排名条：科技发光滤镜 */
+.data-view-right .graph .top_item_bg0,
+.data-view-right .graph .top_item_bg1,
+.data-view-right .graph .top_item_bg2,
+.data-view-right .graph .top_item_bg3,
+.data-view-right .graph .top_item_bg4 {
+  filter: drop-shadow(0 0 6px rgba(0, 245, 255, 0.35));
+}
+
+.data-view-right .graph .top_item .top_item_name div:first-child {
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
 }
 </style>
