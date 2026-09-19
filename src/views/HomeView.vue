@@ -2018,4 +2018,122 @@ img[src="https://api.map.baidu.com/images/iw3.png"] {
   background-color: #f5f5f5;
   border: 0;
 }
+
+/* ===================== 炫酷科技风增强 ===================== */
+
+/* 左侧统计卡片：玻璃拟态 + 霓虹描边 + 顶部流光 */
+.data-view-left2-mini .drawer .block {
+  position: relative;
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.10), rgba(10, 40, 70, 0.45));
+  border: 1px solid rgba(0, 245, 255, 0.22);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.data-view-left2-mini .drawer .block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00f5ff, transparent);
+  background-size: 200% 100%;
+  animation: hvShimmer 3s linear infinite;
+}
+
+.data-view-left2-mini .drawer .block:hover {
+  border-color: rgba(0, 245, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 245, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+@keyframes hvShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 数值霓虹发光 */
+.data-view-left2-mini .drawer .block .num {
+  text-shadow: 0 0 10px rgba(41, 229, 229, 0.7), 0 0 24px rgba(41, 229, 229, 0.35);
+}
+
+/* 右侧图表面板：玻璃质感 + 扫描线 */
+.data-view-right .graph {
+  background-image: linear-gradient(160deg, rgba(10, 30, 55, 0.72), rgba(6, 16, 34, 0.85));
+  border: 1px solid rgba(0, 245, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 24px rgba(0, 245, 255, 0.06);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.data-view-right .graph::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 5%, #00f5ff 50%, transparent 95%);
+  opacity: 0;
+  animation: hvScanline 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes hvScanline {
+  0% { transform: translateY(0); opacity: 0; }
+  8% { opacity: 0.7; }
+  92% { opacity: 0.7; }
+  100% { transform: translateY(86vh); opacity: 0; }
+}
+
+/* 右侧各卡片：霓虹边框 + 悬停发光 */
+.data-view-right .graph .box {
+  border: 1px solid rgba(0, 245, 255, 0.14);
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.data-view-right .graph .box:hover {
+  border-color: rgba(0, 245, 255, 0.4);
+  box-shadow: 0 0 18px rgba(0, 245, 255, 0.12);
+}
+
+/* TOP5 条目悬停微动效 */
+.data-view-right .graph .top_item {
+  transition: all 0.25s ease;
+}
+
+.data-view-right .graph .top_item:hover {
+  transform: translateX(-4px);
+  filter: drop-shadow(0 0 6px rgba(0, 245, 255, 0.35));
+}
+
+/* 顶部查询栏：玻璃科技感 */
+.query {
+  background: linear-gradient(180deg, rgba(8, 20, 40, 0.88), rgba(8, 20, 40, 0.72));
+  border-bottom: 1px solid rgba(0, 245, 255, 0.18);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 245, 255, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+/* 地图暗角 + 边缘青色光晕 */
+.map {
+  position: relative;
+}
+
+.map::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(2, 12, 27, 0.5) 100%);
+  box-shadow: inset 0 0 120px rgba(0, 245, 255, 0.05);
+  z-index: 500;
+}
 </style>
