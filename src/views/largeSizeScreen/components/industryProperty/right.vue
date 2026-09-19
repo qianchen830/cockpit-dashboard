@@ -593,6 +593,8 @@ export default {
   width: 100px;
   display: inline-block;
   margin-left: 110px;
+  position: relative;
+  top: -8px;
 
   ::v-deep input {
     background-color: #13293d !important;
