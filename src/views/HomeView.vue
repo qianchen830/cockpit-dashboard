@@ -1467,11 +1467,26 @@ export default {
       const chart = this.$echarts.init(this.$refs.chart4);
 
 
-      // 处理数据
-      const seriesData = composeList.map(item => ({
+      // 处理数据（每片用亮→深渐变色，更真实）
+      const pieColors = [
+        ['#00f5ff', '#026a8f'],
+        ['#4ecdc4', '#1a6b66'],
+        ['#a855f7', '#5b21b6'],
+        ['#ff6b6b', '#9f3b3b'],
+        ['#ffb84d', '#a3671a'],
+        ['#84d6fb', '#2c5f8f'],
+        ['#9bf179', '#4f7a2e']
+      ];
+      const seriesData = composeList.map((item, i) => ({
         name: item.name,
-        value: item.amt
-      }));
+        value: item.amt,
+        itemStyle: {
+          color: new this.$echarts.graphic.LinearGradient(0, 0, 1, 1, [
+            {offset: 0, color: pieColors[i % pieColors.length][0]},
+            {offset: 1, color: pieColors[i % pieColors.length][1]}
+          ])
+        }
+      })).sort((a, b) => b.value - a.value);
 
       const option = {
         tooltip: {
@@ -1482,46 +1497,67 @@ export default {
           borderWidth: 1,
           textStyle: { color: '#fff' }
         },
-        color: ['#00f5ff', '#4ecdc4', '#a855f7', '#ff6b6b', '#ffb84d', '#84d6fb', '#9bf179'],
-        // legend: {
-        //   orient: 'vertical',
-        //   left: 'right',
-        //   top: 'center',
-        //   textStyle: {
-        //     color: '#fff'
-        //   },
-        //   data: seriesData.map(item => item.name)
-        // },
-        series: [{
-          type: 'pie',
-          radius: ['40%', '70%'],
-          avoidLabelOverlap: false,
-          // label: {
-          //   show: true,
-          //   position: 'outside',
-          //   formatter: '{b|{b}}\n{c|{c}元} {d|{d}%}',
-          //   rich: {
-          //     b: { fontSize: 14, fontWeight: 'bold' },
-          //     c: { fontSize: 12 },
-          //     d: { fontSize: 12 }
-          //   }
-          // },
-          emphasis: {
-            label: {
-              show: true,
-              fontSize: 20,
-              fontWeight: 'bold'
-            }
+        legend: {
+          bottom: 0,
+          left: 'center',
+          type: 'scroll',
+          itemWidth: 10,
+          itemHeight: 6,
+          itemGap: 5,
+          textStyle: { color: '#B6CEF0', fontSize: 10 },
+          pageIconColor: '#00f5ff',
+          pageIconInactiveColor: '#2c4a6e',
+          pageTextStyle: { color: '#B6CEF0' }
+        },
+        series: [
+          {
+            name: '收入类型',
+            type: 'pie',
+            roseType: 'radius',
+            radius: ['28%', '64%'],
+            center: ['50%', '44%'],
+            itemStyle: {
+              borderRadius: 4,
+              borderColor: '#091220',
+              borderWidth: 2
+            },
+            label: { show: false },
+            labelLine: { show: false },
+            emphasis: {
+              scale: true,
+              scaleSize: 6,
+              itemStyle: {
+                shadowBlur: 16,
+                shadowColor: 'rgba(0, 245, 255, 0.35)'
+              }
+            },
+            data: seriesData
           },
-          data: seriesData.sort((a, b) => b.value - a.value),
-          itemStyle: {
-            borderRadius: 5,
-            borderColor: '#091220',
-            borderWidth: 3,
-            shadowBlur: 14,
-            shadowColor: 'rgba(0, 245, 255, 0.3)'
+          {
+            type: 'pie',
+            silent: true,
+            radius: ['23%', '24.5%'],
+            center: ['50%', '44%'],
+            label: { show: false },
+            labelLine: { show: false },
+            animation: false,
+            data: [{ value: 1, itemStyle: { color: 'rgba(0, 245, 255, 0.4)' } }]
           }
-        }]
+        ],
+        graphic: [
+          {
+            type: 'text',
+            left: 'center',
+            top: '41%',
+            style: {
+              text: '收入构成',
+              textAlign: 'center',
+              fill: '#8FD6FF',
+              fontSize: 13,
+              fontWeight: 600
+            }
+          }
+        ]
       };
 
       chart.setOption(option);
@@ -2330,6 +2366,30 @@ img[src="https://api.map.baidu.com/images/iw3.png"] {
   height: 45px !important;
   opacity: 0.35;
   filter: drop-shadow(0 0 6px rgba(0, 245, 255, 0.3));
+}
+
+/* TOP5 条目紧凑化：适配容器高度 */
+.data-view-right .graph .top_item {
+  margin-top: 7px !important;
+  font-size: 13px;
+}
+
+.data-view-right .graph .top_item .top_item_name {
+  font-size: 13px;
+  margin-bottom: 1px;
+}
+
+.data-view-right .graph .top_item .top_item_name div:first-child {
+  font-size: 11px;
+  padding: 0 5px;
+}
+
+.data-view-right .graph .top_item_bg0,
+.data-view-right .graph .top_item_bg1,
+.data-view-right .graph .top_item_bg2,
+.data-view-right .graph .top_item_bg3,
+.data-view-right .graph .top_item_bg4 {
+  height: 5px !important;
 }
 
 /* 应收/实收 tab：玻璃科技风重做 */
