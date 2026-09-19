@@ -80,7 +80,7 @@
       <!-- 资产信息弹窗 -->
       <bm-info-window :title="infoWindow.title" :position="infoWindow.position" :show="infoWindow.show"
                       @close="infoWindowClose()">
-        <div style="color: #fff; font-size: 16px;width: 720px;height: 400px;">
+        <div style="color: #fff; font-size: 16px;width: 620px;height: 310px;">
           <div style="
               margin-top: 5px;
               height: 2px;
@@ -158,13 +158,13 @@
               <!--                            <div class="asset-btn" @click="initPanorama(infoWindow.position)">
                                             查看全景
                                           </div>-->
-              <div class="asset-btn" style="left: 35px; margin-left: 20px" @click="toDetailPage(infoWindow)">
+              <div class="asset-btn" @click="toDetailPage(infoWindow)">
                 项目详情
               </div>
             </div>
 
 
-            <div class="asset-image" style="width: 70%; height: 400px;" v-if="infoWindow.makerType==='aseet'">
+            <div class="asset-image" style="width: 55%; height: 100%;" v-if="infoWindow.makerType==='aseet'">
               <img v-if="infoWindow.imageUrl"
                    :src="infoWindow.imageUrl" style="
                   width: 100%;
@@ -176,7 +176,7 @@
               </div>
             </div>
 
-            <div class="asset-image" style="width: 70%; height: 400px;" v-if="infoWindow.makerType==='project'">
+            <div class="asset-image" style="width: 55%; height: 100%;" v-if="infoWindow.makerType==='project'">
               <img v-if="infoWindow.projectInfo.imageAddress"
                    :src="infoWindow.projectInfo.imageAddress+'&'+infoWindow.projectInfo.accessToken" style="
                   width: 100%;
@@ -1846,12 +1846,18 @@ img[src="https://api.map.baidu.com/images/iw3.png"] {
 }
 
 .asset-info {
-  width: 30% !important;
+  width: 42% !important;
   /*position: relative;*/
 }
 
+/* 弹窗信息行紧凑化 */
+.asset-container .asset-info div {
+  font-size: 15px !important;
+  margin-top: 5px !important;
+}
+
 .asset-btn {
-  position: absolute;
+  position: relative;
   float: left;
   padding: 5px;
   width: 80px;
@@ -1859,17 +1865,17 @@ img[src="https://api.map.baidu.com/images/iw3.png"] {
   line-height: 28px;
   text-align: center;
   margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 14px;
   border-radius: 7px;
   background-color: #0096ff;
   cursor: pointer;
-  bottom: 0;
 }
 
 .asset-address {
   margin-top: 10px;
   font-size: 18px;
-  margin-bottom: 50px;
+  margin-bottom: 8px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
