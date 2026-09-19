@@ -85,7 +85,8 @@
               margin-top: 5px;
               height: 2px;
               width: 100%;
-              background-color: #1981e1 !important;
+              background: linear-gradient(90deg, transparent, #00f5ff 30%, #0293dd) !important;
+              box-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
             "></div>
           <div class="asset-container">
             <div class="asset-info" v-if="infoWindow.makerType==='aseet'">
@@ -800,11 +801,14 @@ export default {
           let label_color = this.iconOption.default.color;
           label.setStyle({
             color: "#fff",
-            backgroundColor: label_color,
-            borderRadius: "10px",
+            backgroundColor: "rgba(9, 18, 32, 0.82)",
+            borderRadius: "8px",
             fontSize: "14px",
-            border: "0",
+            border: "1px solid rgba(0, 245, 255, 0.4)",
+            boxShadow: "0 0 12px rgba(0, 245, 255, 0.25)",
+            backdropFilter: "blur(6px)",
             transform: "translateX(-30%)",
+            padding: "0 10px",
           });
           tMarker.setTitle(temp.name);
         } else {
@@ -849,13 +853,17 @@ export default {
           let _this = this;
           tMarker.addEventListener("mouseover", function (e) {
             this.getLabel().setStyle({
-              backgroundColor: "#f56c6c",
+              backgroundColor: "rgba(0, 245, 255, 0.28)",
+              border: "1px solid rgba(0, 245, 255, 0.85)",
+              boxShadow: "0 0 18px rgba(0, 245, 255, 0.5)",
             });
             this.setTop(true);
           });
           tMarker.addEventListener("mouseout", function (e) {
             this.getLabel().setStyle({
-              backgroundColor: _this.iconOption.default.color,
+              backgroundColor: "rgba(9, 18, 32, 0.82)",
+              border: "1px solid rgba(0, 245, 255, 0.4)",
+              boxShadow: "0 0 12px rgba(0, 245, 255, 0.25)",
             });
             this.setTop(false);
           });
@@ -2018,6 +2026,36 @@ img[src="https://api.map.baidu.com/images/iw3.png"] {
   bottom: 0;
   width: 70px;
   height: 70px;
+}
+
+/* ===== 地图坐标点与弹窗科技风 ===== */
+
+/* 坐标点图标发光 */
+.BMap_Marker img {
+  filter: drop-shadow(0 0 6px rgba(0, 245, 255, 0.45));
+}
+
+/* 弹窗：玻璃边框 + 青色光晕 */
+.BMap_pop > div {
+  border: 1px solid rgba(0, 245, 255, 0.25) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 245, 255, 0.12) !important;
+}
+
+/* 弹窗标题霓虹发光 */
+.BMap_bubble_title {
+  text-shadow: 0 0 12px rgba(0, 245, 255, 0.5), 0 0 26px rgba(0, 245, 255, 0.2) !important;
+}
+
+/* 资产详情按钮：发光 + 悬停上浮 */
+.asset-btn {
+  box-shadow: 0 0 12px rgba(0, 150, 255, 0.4);
+  transition: all 0.25s ease;
+}
+
+.asset-btn:hover {
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #0293dd, #00f5ff) !important;
 }
 </style>
 
