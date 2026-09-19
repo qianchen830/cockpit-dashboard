@@ -340,6 +340,7 @@ import request from "@/api/request";
 import {openCosmicFormPage, openCosmicListPage} from "@/utils/openUtils";
 import {getAssetProjectList, getProAssetBookValue} from "@/api";
 import iconImage from "@/img/Screen/icon.png";
+import {getPie3D, bindListen} from '@/views/largeSizeScreen/components/3DPie'
 
 export default {
   data() {
@@ -1467,100 +1468,29 @@ export default {
       const chart = this.$echarts.init(this.$refs.chart4);
 
 
-      // 处理数据（每片用亮→深渐变色，更真实）
-      const pieColors = [
-        ['#00f5ff', '#026a8f'],
-        ['#4ecdc4', '#1a6b66'],
-        ['#a855f7', '#5b21b6'],
-        ['#ff6b6b', '#9f3b3b'],
-        ['#ffb84d', '#a3671a'],
-        ['#84d6fb', '#2c5f8f'],
-        ['#9bf179', '#4f7a2e']
-      ];
-      const seriesData = composeList.map((item, i) => ({
+      // 驾驶舱同款 3D 饼图
+      const colors3d = ['#00d4ff', '#37d3ad', '#a97bf1', '#f27b7b', '#f5c26b', '#84d6fb', '#9bf179'];
+      const pieData = composeList.map((item, i) => ({
         name: item.name,
         value: item.amt,
-        itemStyle: {
-          color: new this.$echarts.graphic.LinearGradient(0, 0, 1, 1, [
-            {offset: 0, color: pieColors[i % pieColors.length][0]},
-            {offset: 1, color: pieColors[i % pieColors.length][1]}
-          ])
-        }
-      })).sort((a, b) => b.value - a.value);
+        itemStyle: { color: colors3d[i % colors3d.length], opacity: 0.92 }
+      }));
 
-      const option = {
-        tooltip: {
-          trigger: 'item',
-          formatter: '{b}: {c}元 (占比{d}%)',
-          backgroundColor: 'rgba(9, 18, 32, 0.92)',
-          borderColor: 'rgba(0, 245, 255, 0.35)',
-          borderWidth: 1,
-          textStyle: { color: '#fff' }
-        },
+      chart.setOption(getPie3D(pieData, 0.6));
+      bindListen(chart, getPie3D(pieData, 0.6));
+      // 底部小字滚动图例（getPie3D 自带名称+占比格式化）
+      chart.setOption({
         legend: {
+          show: true,
           bottom: 0,
           left: 'center',
           type: 'scroll',
-          itemWidth: 10,
-          itemHeight: 6,
-          itemGap: 5,
-          textStyle: { color: '#B6CEF0', fontSize: 10 },
-          pageIconColor: '#00f5ff',
-          pageIconInactiveColor: '#2c4a6e',
-          pageTextStyle: { color: '#B6CEF0' }
-        },
-        series: [
-          {
-            name: '收入类型',
-            type: 'pie',
-            roseType: 'radius',
-            radius: ['28%', '64%'],
-            center: ['50%', '44%'],
-            itemStyle: {
-              borderRadius: 4,
-              borderColor: '#091220',
-              borderWidth: 2
-            },
-            label: { show: false },
-            labelLine: { show: false },
-            emphasis: {
-              scale: true,
-              scaleSize: 6,
-              itemStyle: {
-                shadowBlur: 16,
-                shadowColor: 'rgba(0, 245, 255, 0.35)'
-              }
-            },
-            data: seriesData
-          },
-          {
-            type: 'pie',
-            silent: true,
-            radius: ['23%', '24.5%'],
-            center: ['50%', '44%'],
-            label: { show: false },
-            labelLine: { show: false },
-            animation: false,
-            data: [{ value: 1, itemStyle: { color: 'rgba(0, 245, 255, 0.4)' } }]
-          }
-        ],
-        graphic: [
-          {
-            type: 'text',
-            left: 'center',
-            top: '41%',
-            style: {
-              text: '收入构成',
-              textAlign: 'center',
-              fill: '#8FD6FF',
-              fontSize: 13,
-              fontWeight: 600
-            }
-          }
-        ]
-      };
-
-      chart.setOption(option);
+          itemWidth: 8,
+          itemHeight: 8,
+          itemGap: 6,
+          textStyle: { color: '#B6CEF0', fontSize: 10 }
+        }
+      });
     },
     /**
      * 清除头部选项数据
